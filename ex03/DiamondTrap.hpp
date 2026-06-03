@@ -12,6 +12,10 @@ public:
 	DiamondTrap(DiamondTrap const &other);
 	~DiamondTrap(void);
 	DiamondTrap &operator=(DiamondTrap const &other); 
+	using ScavTrap::attack;
+	void	whoAmI(void);
+private:
+	std::string	name;
 };
 
 #endif
