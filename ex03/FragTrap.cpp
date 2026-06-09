@@ -15,7 +15,13 @@ FragTrap::FragTrap(FragTrap const &other) : ClapTrap(other.name)
 
 FragTrap &FragTrap::operator=(FragTrap const &other)
 {
-	*this = other;
+	if (this != &other)
+	{
+		name = other.name;
+		hit = other.hit;
+		energy = other.energy;
+		attack_point = other.attack_point;
+	}
 	return (*this);
 }
 
@@ -26,6 +32,11 @@ FragTrap::~FragTrap(void)
 
 void	FragTrap::highFivesGuys(void)
 {
+	if (hit <= 0)
+	{
+		std::cout << "Cannot high five because there is no health left" << std::endl;
+		return ;
+	}
 	std::cout << "I'm a FragTrap please high five me as much as you like" << std::endl;
 	std::cout << "Select total high fives: ";
 	std::cin >> high; 

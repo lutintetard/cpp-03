@@ -10,8 +10,12 @@ DiamondTrap::DiamondTrap(std::string const &name) : ClapTrap(name + "_clap_name"
 	std::cout << "DiamondTrap " << name << " has been created." << std::endl;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const &other) : DiamondTrap(other.name)
+DiamondTrap::DiamondTrap(DiamondTrap const &other) :ClapTrap(other.name + "_clap_name"), ScavTrap(other.name), FragTrap(other.name)
 {
+	hit = other.hit;
+	energy = other.energy;
+	attack_point = other.attack_point;
+	name = other.name;
 }
 
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &other)

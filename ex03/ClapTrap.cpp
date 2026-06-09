@@ -1,10 +1,10 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(std::string const &name) :
+	name(name),
 	hit(10),
 	energy(10),
-	attack_point(0),
-	name(name)
+	attack_point(0)
 {
 	std::cout << "ClapTrap " << name << " was created " << std::endl;
 }
@@ -20,7 +20,13 @@ ClapTrap::ClapTrap(ClapTrap const &other) :
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &other)
 {
-	*this = other; 
+	if (this != &other)
+	{
+		name = other.name;
+		hit = other.hit;
+		energy = other.energy;
+		attack_point = other.attack_point;
+	}
 	return (*this);
 }
 

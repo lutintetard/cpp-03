@@ -1,9 +1,10 @@
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
+# include <cstdlib>
+# include <iostream>
 # include "ClapTrap.hpp"
 # include "ScavTrap.hpp"
-# include <iostream>
 
 class FragTrap : virtual public ClapTrap
 {

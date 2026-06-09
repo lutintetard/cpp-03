@@ -17,7 +17,13 @@ ScavTrap::ScavTrap(ScavTrap const &other) : ClapTrap(other.name)
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &other)
 {
-	*this = other;
+	if (this != &other)
+	{
+		name = other.name;
+		hit = other.hit;
+		attack_point = other.attack_point;
+		guard = other.guard;
+	}
 	return (*this);
 }
 
