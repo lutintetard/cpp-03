@@ -1,8 +1,9 @@
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
-# include "ClapTrap.hpp"
+# include <cstdlib>
 # include <iostream>
+# include "ClapTrap.hpp"
 
 class FragTrap : public ClapTrap
 {
