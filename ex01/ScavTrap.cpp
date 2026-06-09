@@ -17,7 +17,14 @@ ScavTrap::ScavTrap(ScavTrap const &other) : ClapTrap(other.name)
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &other)
 {
-	*this = other;
+	if (this != &other)
+	{
+		hit = other.hit;
+		name = other.name;
+		energy = other.energy;
+		attack_point = other.attack_point;
+		guard = other.guard;
+	}
 	return (*this);
 }
 
@@ -44,6 +51,7 @@ void ScavTrap::attack(std::string const &name)
 		return ; 
 	}
 	std::cout << "I'm a ScavTrap so I attack differently" << std::endl;
+	std::cout << this->name << " receives " << this->attack_point << " damage" << std::endl; 
 	std::cout << name << " gets absolutely smashed" << std::endl;
 	energy--;
 	return ;	
@@ -51,7 +59,11 @@ void ScavTrap::attack(std::string const &name)
 
 void	ScavTrap::guardGate(void)
 {
-
+	if (this->hit <= 0)
+	{
+		std::cout << "This ScavTrap has no health points left and cannot do anthing" << std::endl;
+		return ;
+	}
 	if (this->guard == false)
 	{
 		std::cout << "I will start guarding the gate" << std::endl;
